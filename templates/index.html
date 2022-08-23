@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    CRUD -  Home
+{% endblock %}
+
+{% block body %}
+    <div id="conteudo">
+        <h3>Clientes:</h3>
+        <table>
+            <tr>
+                <th>Nome:</th>
+                <th>Telefone:</th>
+                <th>Ações</th>
+            </tr>
+            {% for cliente in clientes %}
+            <tr>
+                <td>{{cliente.nome}}</td>
+                <td>{{cliente.telefone}}</td>
+                <td>
+                    <a href="">Apagar</a>
+                    <br>
+                    <a href="">Editar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <form action="/" method="POST">
+            <label for="nome">Nome:</label><br>
+            <input type="text" name="nome" id="nome"><br>
+            <label for="end">Endereço:</label><br>
+            <input type="text" name="end" id="end"><br>
+            <label for="fone">Telefone:</label><br>
+            <input type="text" name="fone" id="fone"><br>
+            <input type="submit" value="Adicionar">
+        </form>
+    </div>
+{% endblock %}
